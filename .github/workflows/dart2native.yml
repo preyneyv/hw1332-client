@@ -1,0 +1,32 @@
+name: Build Dart Client
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        include:
+          - os: ubuntu-latest
+            artifact-name: hw1332-linux
+            output-name: hw1332
+          - os: macOS-latest
+            artifact-name: hw1332-mac
+            output-name: hw1332
+          - os: windows-latest
+            artifact-name: hw1332-windows
+            output-name: hw1332.exe
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: DanTup/gh-actions/setup-dart@master
+      - run: mkdir build
+      - run: pub get
+      - run: dart2native lib/bootstrapper.dart -v -o build/${{ matrix.output-name }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: ${{ matrix.artifact-name }}
+          path: client/build/${{ matrix.output-name }}
