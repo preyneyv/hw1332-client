@@ -115,10 +115,9 @@ class Application {
           print(yellow.wrap(
               "It appears you have 2FA enabled! Good on you! But that complicates things..."));
           print(yellow.wrap(
-              "Go to ${styleUnderlined.wrap('https://github.gatech.edu/settings/tokens/new')} and create a new token."));
-          print(yellow.wrap(
-              "You don't need to tick any boxes. Just give it a nickname and copy the token."));
-          print(yellow.wrap("Once you have that, paste it back here."));
+              "Go to ${styleUnderlined.wrap('https://github.com/preyneyv/hw1332-client#a-note-about-two-factor-authentication')} for instructions."));
+          helpers.runBrowser(
+              'https://github.com/preyneyv/hw1332-client#a-note-about-two-factor-authentication');
           return _authenticate(tfa: true, oldUsername: username);
         default:
       }

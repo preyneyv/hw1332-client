@@ -59,11 +59,11 @@ Some of you may have two-factor authentication enabled, and honestly, good on yo
   ✔ GATech GitHub Username ‥ pnutalapati3
   ✔ GATech GitHub Password ‥ ****************
   It appears you have 2FA enabled! Good on you! But that complicates things...
-  Go to https://github.gatech.edu/settings/tokens/new and create a new token.
-  You don't need to tick any boxes. Just give it a nickname and copy the token.
-  Once you have that, paste it back here.
+  Go to https://github.com/preyneyv/hw1332-client#a-note-about-two-factor-authentication for instructions.
   ```
-2. As the friendly block of text says, go to https://github.gatech.edu/settings/tokens/new and create a new token.
+  Hey look, that's recursion!
+
+2. Go to https://github.gatech.edu/settings/tokens/new and create a new token.
   - Give the token a nickname like `HW1332 Token` or `muhnemjeff`.
   - You can leave all the scopes unticked. We prefer sorcery over permissions.
   - Copy the newly-generated token.

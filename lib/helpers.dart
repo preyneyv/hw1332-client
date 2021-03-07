@@ -1,6 +1,6 @@
 import "dart:io";
 
-void runBrowser(String url) {
+bool runBrowser(String url) {
   var fail = false;
   switch (Platform.operatingSystem) {
     case "linux":
@@ -16,8 +16,5 @@ void runBrowser(String url) {
       fail = true;
       break;
   }
-
-  if (!fail) {
-    print("Start browsing...");
-  }
+  return fail;
 }
