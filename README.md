@@ -9,14 +9,14 @@ Welcome to the epitome of laziness. We've all been there before. You want to tes
 ## Installation
 1. Head over to [Releases](https://github.com/preyneyv/hw1332-client/releases/latest) and download the correct version for your OS. If you'd prefer to build it yourself, keep scrolling.
 2. Put it somewhere in your `PATH`. 
-   - macOS: https://coolestguidesontheplanet.com/add-shell-path-osx/
+   - macOS: https://coolestguidesontheplanet.com/add--path-osx/
    - Linux: https://opensource.com/article/17/6/set-path-linux
    - Windows: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
 3. You're ready to start saving marginal amounts of time!
 
 ## Usage
 
-```shell
+```
 $ hw1332 help
 The epitome of laziness. An automated way to download CS 1332 Student Tests.
 Built by @preyneyv in March 2021.
@@ -38,15 +38,15 @@ Run "hw1332 help <command>" for more information about a command.
 
 ## Examples
 - List all available homework.
-  ```shell
+  ```
   $ hw1332 list
   ```
 - View the tests available for HW04.
-  ```shell
+  ```
   $ hw1332 view 4
   ```
 - Download tests for HW03.
-  ```shell
+  ```
   $ hw1332 download 3
   ```
 ## A Note about Two-Factor Authentication
@@ -57,12 +57,12 @@ Some of you may have two-factor authentication enabled, and honestly, good on yo
 1. When prompted, attempt to authenticate normally. You will be greeted by this message:
   ```
   ✔ GATech GitHub Username ‥ pnutalapati3
-✔ GATech GitHub Password ‥ ****************
-It appears you have 2FA enabled! Good on you! But that complicates things...
-Go to https://github.gatech.edu/settings/tokens/new and create a new token.
-You don't need to tick any boxes. Just give it a nickname and copy the token.
-Once you have that, paste it back here.
-```
+  ✔ GATech GitHub Password ‥ ****************
+  It appears you have 2FA enabled! Good on you! But that complicates things...
+  Go to https://github.gatech.edu/settings/tokens/new and create a new token.
+  You don't need to tick any boxes. Just give it a nickname and copy the token.
+  Once you have that, paste it back here.
+  ```
 2. As the friendly block of text says, go to https://github.gatech.edu/settings/tokens/new and create a new token.
   - Give the token a nickname like `HW1332 Token` or `muhnemjeff`.
   - You can leave all the scopes unticked. We prefer sorcery over permissions.
@@ -70,9 +70,9 @@ Once you have that, paste it back here.
 3. Return to the terminal and paste your token into the prompt.
   ```
   Using `pnutalapati3` as the username...
-✔ GATech GitHub Token ‥ ****************************************
-That worked!
-```
+  ✔ GATech GitHub Token ‥ ****************************************
+  That worked!
+  ```
 4. **Make sure you accept the "Remember these credentials?" prompt.** While this isn't technically necessary, you'd have to do this whole process every single time you run any command. This is *no bueno*.
 
 ## Building from Source
