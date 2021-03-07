@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="images/hero.png">
+  <img height="500" src="images/hero.png">
 </p>
 
 # HW1332 Downloader
