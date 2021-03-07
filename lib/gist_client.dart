@@ -19,18 +19,22 @@ class GistClient {
     await testCredentials();
   }
 
-  Future<bool> testCredentials({GistCredentials credentials}) async {
+  Future<GistCredentialsTestResult> testCredentials(
+      {GistCredentials credentials}) async {
     try {
       final options = Options();
       if (credentials != null)
         options.headers['authorization'] = credentials.header;
 
       await _client.get(config.apiRoot, options: options);
-      return true;
+      return GistCredentialsTestResult.SUCCESS;
     } on DioError catch (e) {
       if (e.type == DioErrorType.RESPONSE) {
-        // Request went through but creds are wrong.
-        return false;
+        // Request went through but creds are wrong or needs TFA
+        final response = e.response;
+        if (response.headers['X-GitHub-OTP'] != null)
+          return GistCredentialsTestResult.TFA;
+        return GistCredentialsTestResult.FAILURE;
       } else {
         print(red.wrap("Couldn't reach the Internet! Are you connected?"));
         print(red.wrap(e.message));
@@ -86,3 +90,5 @@ class GistCredentials {
     return {'username': _username, 'password': _password};
   }
 }
+
+enum GistCredentialsTestResult { SUCCESS, FAILURE, TFA }

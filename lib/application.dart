@@ -6,6 +6,7 @@ import 'package:io/ansi.dart';
 import 'package:path/path.dart' as p;
 import 'package:prompts/prompts.dart' as prompts;
 
+import 'helpers.dart' as helpers;
 import 'gist_client.dart';
 import 'models/homework.dart';
 
@@ -83,7 +84,8 @@ class Application {
   }
 
   /// Try to get credentials from storage or ask the user for them.
-  Future<GistCredentials> _authenticate() async {
+  Future<GistCredentials> _authenticate(
+      {bool tfa: false, String oldUsername: null}) async {
     GistCredentials creds;
     if (await _credFile.exists()) {
       try {
@@ -97,18 +99,32 @@ class Application {
       }
     } else {
       // We don't have stored credentials.
-      String username = prompts.get('Enter your GATech GitHub username');
-      String password =
-          prompts.get('Enter your GATech GitHub password', conceal: true);
+      String username = oldUsername;
+      if (username == null)
+        username = prompts.get('GATech GitHub Username');
+      else
+        print(styleDim.wrap("Using `$username` as the username..."));
+      String password = prompts
+          .get('GATech GitHub ${tfa ? 'Token' : 'Password'}', conceal: true);
       creds = GistCredentials(username, password);
-
-      if (!await _client.testCredentials(credentials: creds)) {
-        // They didn't work!
-        print(red.wrap("Hmm, that doesn't seem right! Please try again."));
-        return _authenticate();
+      switch (await _client.testCredentials(credentials: creds)) {
+        case GistCredentialsTestResult.FAILURE:
+          print(red.wrap("Hmm, that doesn't seem right! Please try again."));
+          return _authenticate(tfa: tfa, oldUsername: oldUsername);
+        case GistCredentialsTestResult.TFA:
+          print(yellow.wrap(
+              "It appears you have 2FA enabled! Good on you! But that complicates things..."));
+          print(yellow.wrap(
+              "Go to ${styleUnderlined.wrap('https://github.gatech.edu/settings/tokens/new')} and create a new token."));
+          print(yellow.wrap(
+              "You don't need to tick any boxes. Just give it a nickname and copy the token."));
+          print(yellow.wrap("Once you have that, paste it back here."));
+          return _authenticate(tfa: true, oldUsername: username);
+        default:
       }
       print(green.wrap('That worked!'));
-      bool remember = prompts.getBool('Remember these credentials?');
+      bool remember =
+          prompts.getBool('Remember these credentials?', defaultsTo: true);
       if (remember) await _credFile.writeAsString(json.encode(creds.toJson()));
     }
     return creds;
