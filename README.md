@@ -7,6 +7,9 @@
 
 Welcome to the epitome of laziness. We've all been there before. You want to test your homework but don't want to go *all the way* to Piazza and download *4 SEPARATE FILES*. Well now, you don't have to!
 
+If you're interested, here's the source code for the Piazza scraper backend: 
+[preyneyv/hw1332-scraper](https://github.com/preyneyv/hw1332-scraper)
+
 ## Installation
 1. Head over to [Releases](https://github.com/preyneyv/hw1332-client/releases/latest) and download the correct version for your OS. If you'd prefer to build it yourself, keep scrolling.
 2. Put it somewhere in your `PATH`. 
