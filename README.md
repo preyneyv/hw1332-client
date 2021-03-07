@@ -1,8 +1,9 @@
 <p align="center">
-  <img height="500" src="images/hero.png">
+  <img height="450" src="images/hero.png">
 </p>
 
 # HW1332 Downloader
+[![Build Dart Client](https://github.com/preyneyv/hw1332-client/actions/workflows/dart2native.yml/badge.svg)](https://github.com/preyneyv/hw1332-client/actions/workflows/dart2native.yml)
 
 Welcome to the epitome of laziness. We've all been there before. You want to test your homework but don't want to go *all the way* to Piazza and download *4 SEPARATE FILES*. Well now, you don't have to!
 
@@ -12,7 +13,11 @@ Welcome to the epitome of laziness. We've all been there before. You want to tes
    - macOS: https://coolestguidesontheplanet.com/add--path-osx/
    - Linux: https://opensource.com/article/17/6/set-path-linux
    - Windows: https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/
-3. You're ready to start saving marginal amounts of time!
+3. (Linux/macOS ONLY) Add executable permissions to the file.
+   ```
+   chmod +x /path/to/hw1332
+   ```   
+4. You're ready to start saving marginal amounts of time!
 
 ## Usage
 
