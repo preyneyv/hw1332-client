@@ -38,41 +38,41 @@ Run "hw1332 help <command>" for more information about a command.
 
 ## Examples
 - List all available homework.
-  ```
-  $ hw1332 list
-  ```
+    ```
+    $ hw1332 list
+    ```
 - View the tests available for HW04.
-  ```
-  $ hw1332 view 4
-  ```
+    ```
+    $ hw1332 view 4
+    ```
 - Download tests for HW03.
-  ```
-  $ hw1332 download 3
-  ```
+    ```
+    $ hw1332 download 3
+    ```
 ## A Note about Two-Factor Authentication
 Some of you may have two-factor authentication enabled, and honestly, good on you! But as you might imagine, it messes with the authentication process a bit.
 
 ~~So what you need to do is **turn it off**.~~ 
 
 1. When prompted, attempt to authenticate normally. You will be greeted by this message:
-  ```
-  ✔ GATech GitHub Username ‥ pnutalapati3
-  ✔ GATech GitHub Password ‥ ****************
-  It appears you have 2FA enabled! Good on you! But that complicates things...
-  Go to https://github.com/preyneyv/hw1332-client#a-note-about-two-factor-authentication for instructions.
-  ```
-  Hey look, that's recursion!
+   ```
+   ✔ GATech GitHub Username ‥ pnutalapati3
+   ✔ GATech GitHub Password ‥ ****************
+   It appears you have 2FA enabled! Good on you! But that complicates things...
+   Go to https://github.com/preyneyv/hw1332-client#a-note-about-two-factor-authentication for instructions.
+   ```
+   Hey look, that's recursion!
 
 2. Go to https://github.gatech.edu/settings/tokens/new and create a new token.
-  - Give the token a nickname like `HW1332 Token` or `muhnemjeff`.
-  - You can leave all the scopes unticked. We prefer sorcery over permissions.
-  - Copy the newly-generated token.
+    - Give the token a nickname like `HW1332 Token` or `muhnemjeff`.
+    - You can leave all the scopes unticked. We prefer sorcery over permissions.
+    - Copy the newly-generated token.
 3. Return to the terminal and paste your token into the prompt.
-  ```
-  Using `pnutalapati3` as the username...
-  ✔ GATech GitHub Token ‥ ****************************************
-  That worked!
-  ```
+    ```
+    Using `pnutalapati3` as the username...
+    ✔ GATech GitHub Token ‥ ****************************************
+    That worked!
+    ```
 4. **Make sure you accept the "Remember these credentials?" prompt.** While this isn't technically necessary, you'd have to do this whole process every single time you run any command. This is *no bueno*.
 
 ## Building from Source
