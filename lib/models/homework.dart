@@ -52,7 +52,7 @@ class Homework {
 
   @override
   String toString() {
-    return "${number.toString().padLeft(2, '0')} " +
+    return "HW${number.toString().padLeft(2, '0')} " +
         styleDim
             .wrap("with ${gists.length} Gist${gists.length == 1 ? '' : 's'}");
   }
